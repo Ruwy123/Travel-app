@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:travellapp/user_authentication/blocs/signin_bloc/signin_bloc.dart';
+import 'package:travellapp/user_authentication/blocs/signup_bloc/signup_bloc.dart';
 import 'package:travellapp/user_authentication/screens/SignUpScreen.dart';
 import 'package:travellapp/user_authentication/screens/colors.dart';
 import 'package:travellapp/user_authentication/screens/login.dart';
+
+import '../blocs/authentication_bloc/authentication_bloc.dart';
 
 class Authentication extends StatefulWidget {
   const Authentication({super.key});
@@ -88,15 +93,20 @@ class _AuthenticationState extends State<Authentication>
                           ),
                         ]),
                     Expanded(
-                      child: TabBarView(
-                          controller: _tabController,
-                          children: const [
-                            Loginn(),
-                            Padding(
-                              padding: EdgeInsets.only(top: 20),
-                              child: SignUp(),
-                            )
-                          ]),
+                      child: TabBarView(controller: _tabController, children: [
+                        BlocProvider(
+                          create: (context) => SigninBloc(
+                              myUserRepo:
+                                  context.read<AuthenticationBloc>().userRepo),
+                          child: const Loginn(),
+                        ),
+                        BlocProvider<SignupBloc>(
+                          create: (context) => SignupBloc(
+                              myUserRepo:
+                                  context.read<AuthenticationBloc>().userRepo),
+                          child: SignUp(),
+                        )
+                      ]),
                     ),
                     const Spacer(),
                   ],

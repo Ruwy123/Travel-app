@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travellapp/user_authentication/screens/SignUpScreen.dart';
 
 import 'package:travellapp/user_authentication/screens/colors.dart';
 
@@ -47,7 +48,10 @@ class MainScreen extends StatelessWidget {
                   width: 213,
                   height: 33,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: (_) => SignUp()));
+                    },
                     child: Text('GET STARTED',
                         style: TextStyle(
                           fontSize: 18,
