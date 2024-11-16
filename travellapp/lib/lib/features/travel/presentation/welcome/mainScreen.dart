@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:travellapp/lib/features/travel/presentation/screens/Auth/SignUpScreen.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:travellapp/lib/features/travel/presentation/pages/Auth/Authentication.dart';
+import 'package:travellapp/lib/features/travel/presentation/pages/Auth/SignUpScreen.dart';
+import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dart';
 
-
-import '../screens/components/colors.dart';
+import '../../../../../core/configs/theme/colors.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -10,63 +12,81 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.maxFinite,
-        height: double.maxFinite,
-        decoration: const BoxDecoration(
+      body: Stack(children: [
+        //background image
+        Positioned.fill(
+            child: Container(
+          width: double.maxFinite,
+          height: double.maxFinite,
+          decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(
-                  'assets/images/karsten-winegeart-QOYNpMkcAFA-unsplash.jpg',
-                ),
-                fit: BoxFit.cover)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // ignore: avoid_unnecessary_containers
-            Container(
-              padding: const EdgeInsets.only(left: 14, top: 55),
-              child: Image.asset(
-                'assets/images/Group 37.png',
-                width: 88.96,
-                height: 27.47,
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(top: 12, left: 17),
-              width: 247,
-              child: const Text(
-                'Explore Amazing Places Around The Globe',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 500,
-            ),
-            Center(
-              child: Container(
-                  width: 213,
-                  height: 33,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context, MaterialPageRoute(builder: (_) => SignUp()));
-                    },
-                    child: Text('GET STARTED',
-                        style: TextStyle(
-                          fontSize: 18,
+                    'assets/images/aiony-haust-K0DxxljcRv0-unsplash.jpg'),
+                fit: BoxFit.cover),
+          ),
+        )),
+        //background color
+        Positioned.fill(
+            child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                stops: [
+                  0.36,
+                  0.76
+                ],
+                colors: [
+                  Color.fromRGBO(123, 109, 90, 0.5),
+                  Color.fromRGBO(226, 204, 175, 0.5)
+                ]),
+          ),
+        )),
+
+        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          //welcome texts
+          Container(
+              padding: const EdgeInsets.only(top: 200, left: 24),
+              width: MediaQuery.of(context).size.width * 0.58,
+              child: RichText(
+                  text: TextSpan(
+                      text: 'Get Ready \n To Elevate \nYour Style',
+                      style: GoogleFonts.inter(
+                          fontSize: MediaQuery.of(context).size.width * 0.1,
                           fontWeight: FontWeight.w900,
-                          color: Colors.white,
-                        )),
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: ColorApp.backgroundcolor,
-                        elevation: 10),
-                  )),
-            )
-          ],
-        ),
-      ),
+                          color: ColorApp.welcomeText),
+                      children: [
+                    TextSpan(
+                        text: '  Welcome to',
+                        style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            color: ColorApp.primarytext)),
+                    TextSpan(
+                        text: ' Slay ',
+                        style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            fontWeight: FontWeight.w500,
+                            color: ColorApp.welcomeText)),
+                    TextSpan(
+                        text: 'in style',
+                        style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            color: ColorApp.primarytext))
+                  ]))),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.35,
+          ),
+          Center(
+              child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Authentication()));
+                  },
+                  child: Image.asset('assets/vectors/GET sTarted button.png')))
+        ]),
+      ]),
     );
   }
 }

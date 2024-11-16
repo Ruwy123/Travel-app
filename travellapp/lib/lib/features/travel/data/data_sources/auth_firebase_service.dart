@@ -34,8 +34,13 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
   @override
   Future<Either> SignUp(UsersCreation user, param1) async {
     try {
-      var response = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      var data = await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: user.email, password: user.password);
+
+      FirebaseFirestore.instance
+          .collection('Users')
+          .add({'name': user.name, 'email': data.user?.email});
+
       return Right('signup Successful');
     } on FirebaseAuthException catch (e) {
       String message = '';
@@ -44,7 +49,7 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
       } else if (e.code == 'email already in use') {
         message = 'An Account with that email already exists';
       }
-      return const Left('SignUp Failed');
+      return Left(message);
     }
   }
 }

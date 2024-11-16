@@ -7,7 +7,7 @@ import 'package:travellapp/lib/features/travel/data/data_sources/auth_firebase_s
 
 import 'package:travellapp/lib/features/travel/domain/auth/repositories/auth/auth.dart';
 import 'package:travellapp/lib/features/travel/domain/auth/use_cases/login.dart';
-import 'package:travellapp/lib/features/travel/presentation/screens/Auth/login.dart';
+import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dart';
 import 'package:travellapp/service_locator.dart';
 
 class AuthRepositoryImpl extends Authrepository {
