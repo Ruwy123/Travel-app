@@ -80,10 +80,13 @@ class _LoginState extends State<Login> {
                           //not enabled field
 
                           filled: true,
-                          //  fillColor: ColorApp.box,
+                          fillColor: ColorApp.textbox,
                           label: Text('Email'),
-                          labelStyle:
-                              TextStyle(color: Colors.black, fontSize: 18),
+                          labelStyle: TextStyle(
+                            color: ColorApp.texboxText,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                          ),
                           border: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10))),
