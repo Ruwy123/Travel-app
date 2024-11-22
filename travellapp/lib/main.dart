@@ -10,7 +10,7 @@ import 'package:travellapp/core/configs/theme/app_theme.dart';
 
 import 'package:travellapp/firebase_options.dart';
 
-import 'package:travellapp/lib/features/travel/presentation/pages/Auth/Authentication.dart';
+import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dart';
 
 import 'package:travellapp/lib/features/travel/presentation/pages/Auth/SignUpScreen.dart';
 import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dart';

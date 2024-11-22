@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:travellapp/lib/features/travel/presentation/pages/Auth/Authentication.dart';
+import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dart';
 import 'package:travellapp/lib/features/travel/presentation/pages/Auth/SignUpScreen.dart';
 import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dart';
 
