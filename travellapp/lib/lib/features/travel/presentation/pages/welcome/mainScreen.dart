@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dart';
-import 'package:travellapp/lib/features/travel/presentation/pages/Auth/SignUpScreen.dart';
 import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dart';
+import 'package:travellapp/lib/features/travel/presentation/pages/homescreen.dart';
 
-import '../../../../../core/configs/theme/colors.dart';
+import '../../../../../../core/configs/theme/colors.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -79,10 +79,8 @@ class MainScreen extends StatelessWidget {
           Center(
               child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Authentication()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => home()));
                   },
                   child: Image.asset('assets/vectors/GET sTarted button.png')))
         ]),

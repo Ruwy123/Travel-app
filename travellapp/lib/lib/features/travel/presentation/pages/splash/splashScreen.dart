@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:travellapp/core/constants/textfields.dart';
+
 import 'package:travellapp/lib/features/travel/presentation/pages/Auth/SignUpScreen.dart';
-import 'package:travellapp/lib/features/travel/presentation/welcome/mainScreen.dart';
+import 'package:travellapp/lib/features/travel/presentation/pages/welcome/mainScreen.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});

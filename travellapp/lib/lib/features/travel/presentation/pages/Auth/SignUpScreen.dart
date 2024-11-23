@@ -6,7 +6,7 @@ import 'package:travellapp/lib/features/travel/data/Models/auth/userssigniup.dar
 import 'package:travellapp/lib/features/travel/domain/auth/use_cases/signup.dart';
 import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dart';
 
-import 'package:travellapp/lib/features/travel/presentation/screens/homescreen.dart';
+import 'package:travellapp/lib/features/travel/presentation/pages/homescreen.dart';
 import 'package:travellapp/service_locator.dart';
 
 import '../../../../../../core/configs/theme/colors.dart';
