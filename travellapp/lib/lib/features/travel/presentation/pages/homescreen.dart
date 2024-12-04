@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:travellapp/core/constants/productcard.dart';
+import 'package:travellapp/lib/features/travel/presentation/widgets/categories.dart';
 import 'package:travellapp/lib/features/travel/presentation/widgets/imageslider.dart';
+import 'package:travellapp/lib/features/travel/presentation/widgets/productlist.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -10,6 +14,8 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
+  static const currentindex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,25 +31,40 @@ class _homeState extends State<home> {
           Color.fromRGBO(255, 255, 255, 1)
         ])),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, top: 40),
-                child: Row(
-                  children: [
-                    Image.asset('assets/vectors/Frame 11.png'),
-                    const Spacer(),
-                    Image.asset('assets/vectors/Union.png'),
-                    const SizedBox(
-                      width: 25,
-                    ),
-                    Image.asset('assets/vectors/cart.png')
-                  ],
-                ),
+          child: Column(children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 40),
+              child: Row(
+                children: [
+                  Image.asset('assets/vectors/Frame 11.png'),
+                  const Spacer(),
+                  Image.asset('assets/vectors/Union.png'),
+                  const SizedBox(
+                    width: 25,
+                  ),
+                  Image.asset('assets/vectors/cart.png')
+                ],
               ),
-              const Imageslider()
-            ],
-          ),
+            ),
+            const Imageslider(),
+            categories(),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 25),
+              child: Row(
+                children: [
+                  Text('Popular',
+                      style: GoogleFonts.inriaSerif(
+                          textStyle: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold))),
+                  const Spacer(),
+                  Text('See All',
+                      style: GoogleFonts.inriaSerif(
+                          textStyle: const TextStyle(fontSize: 16)))
+                ],
+              ),
+            ),
+            Product()
+          ]),
         ),
       ),
     );

@@ -15,6 +15,7 @@ import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dar
 import 'package:travellapp/lib/features/travel/presentation/pages/Auth/SignUpScreen.dart';
 import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dart';
 import 'package:travellapp/lib/features/travel/presentation/pages/welcome/mainScreen.dart';
+import 'package:travellapp/lib/features/travel/presentation/widgets/categories.dart';
 import 'package:travellapp/service_locator.dart';
 
 import 'package:travellapp/lib/features/travel/presentation/pages/splash/splashScreen.dart';
@@ -35,9 +36,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.Theme,
-      home: const Splash(),
-    );
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.Theme,
+        home: const Splash());
   }
 }

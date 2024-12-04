@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travellapp/core/bottomnavbar.dart';
 import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dart';
 import 'package:travellapp/lib/features/travel/presentation/pages/Auth/login.dart';
 import 'package:travellapp/lib/features/travel/presentation/pages/homescreen.dart';
@@ -79,8 +80,10 @@ class MainScreen extends StatelessWidget {
           Center(
               child: InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => home()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Bottomnavbar()));
                   },
                   child: Image.asset('assets/vectors/GET sTarted button.png')))
         ]),
