@@ -38,7 +38,7 @@ class CategoryModel extends CategoryEntities {
     };
   }
 
-  factory CategoryModel.fromSnapshot(
+  factory CategoryModel.fromMap(
       DocumentSnapshot<Map<String, dynamic>> document) {
     if (document.data() != null) {
       final data = document.data()!;

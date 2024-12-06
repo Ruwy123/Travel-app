@@ -25,7 +25,7 @@ class categories extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.only(left: 15, right: 15),
+                padding: const EdgeInsets.only(left: 15, right: 20),
                 child: Container(
                   width: 135,
                   height: 54,

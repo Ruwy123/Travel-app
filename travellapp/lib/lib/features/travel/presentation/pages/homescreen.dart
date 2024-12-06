@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travellapp/core/constants/productcard.dart';
+import 'package:travellapp/lib/features/travel/presentation/bloc/cubit/categories/category_cubit.dart';
+import 'package:travellapp/lib/features/travel/presentation/bloc/cubit/categories/category_state.dart';
 import 'package:travellapp/lib/features/travel/presentation/widgets/categories.dart';
 import 'package:travellapp/lib/features/travel/presentation/widgets/imageslider.dart';
 import 'package:travellapp/lib/features/travel/presentation/widgets/productlist.dart';
@@ -47,7 +50,19 @@ class _homeState extends State<home> {
               ),
             ),
             const Imageslider(),
-            categories(),
+            BlocProvider<CategoryCubit>(
+              create: (context) => CategoryCubit(),
+              child: BlocBuilder<CategoryCubit, CategoryState>(
+                builder: (context, state) {
+                  if (state is CategoryLoading)
+                    return CircularProgressIndicator();
+                  if (state is Categoryloaded) {
+                    return categories();
+                  }
+                  return Container();
+                },
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, top: 25),
               child: Row(
