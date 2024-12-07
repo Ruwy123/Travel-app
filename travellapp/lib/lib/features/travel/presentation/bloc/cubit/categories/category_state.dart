@@ -1,13 +1,22 @@
+import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:travellapp/lib/features/travel/domain/categories/entities/category.dart';
 
-abstract class CategoryState {}
+abstract class CategoryState extends Equatable {
+  const CategoryState();
+
+  @override
+  List<Object?> get props => [];
+}
 
 class CategoryLoading extends CategoryState {}
 
 class Categoryloaded extends CategoryState {
-  final List<CategoryEntities> categories;
+  final List<Category> categories;
 
-  Categoryloaded({required this.categories});
+  const Categoryloaded({required this.categories});
+  @override
+  List<Object?> get props => [];
 }
 
 class Categoryfailed extends CategoryState {}

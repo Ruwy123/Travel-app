@@ -13,7 +13,6 @@ class CategoriyRepositoryImpl extends Catrep {
     }, (data) {
       return Right(List.from(data)
           .map((e) => CategoryModel.fromMap(e).toJson())
-          .toList()
           .toList());
     });
   }

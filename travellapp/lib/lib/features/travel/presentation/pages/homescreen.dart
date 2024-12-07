@@ -50,19 +50,7 @@ class _homeState extends State<home> {
               ),
             ),
             const Imageslider(),
-            BlocProvider<CategoryCubit>(
-              create: (context) => CategoryCubit(),
-              child: BlocBuilder<CategoryCubit, CategoryState>(
-                builder: (context, state) {
-                  if (state is CategoryLoading)
-                    return CircularProgressIndicator();
-                  if (state is Categoryloaded) {
-                    return categories();
-                  }
-                  return Container();
-                },
-              ),
-            ),
+            categories(),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, top: 25),
               child: Row(
