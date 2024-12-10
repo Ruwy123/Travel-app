@@ -10,21 +10,22 @@ import 'package:travellapp/lib/features/travel/domain/auth/repositories/auth/aut
 import 'package:travellapp/lib/features/travel/domain/auth/use_cases/login.dart';
 import 'package:travellapp/lib/features/travel/domain/auth/use_cases/signup.dart';
 import 'package:travellapp/lib/features/travel/domain/categories/repositories/catrep.dart';
+import 'package:travellapp/lib/features/travel/domain/categories/use_cases/getcategories.dart';
 import 'package:travellapp/lib/features/travel/presentation/bloc/cubit/categories/category_cubit.dart';
 
 final sl = GetIt.instance;
 Future<void> initializedDependencies() async {
   //services
   sl.registerSingleton<AuthFirebaseService>(AuthFirebaseServiceImpl());
-  //sl.registerSingleton<Categoriesfirebasservice>(Categoriesfirebaseimpl());
+  sl.registerSingleton<Categoriesfirebasservice>(Categoriesfirebaseimpl());
 
   //repositories
-  // sl.registerSingleton<Catrep>(CategoriyRepositoryImpl());
+  sl.registerSingleton<Catrep>(CategoriyRepositoryImpl());
   sl.registerSingleton<Authrepository>(AuthRepositoryImpl());
 //usecases
   sl.registerSingleton<SignupuseCase>(SignupuseCase());
   sl.registerSingleton<Loginusecase>(Loginusecase());
+  sl.registerSingleton<GetcategoriesuseCase>(GetcategoriesuseCase());
 
   //cubit
-  sl.registerFactory(() => CategoryCubit(sl()));
 }

@@ -9,10 +9,6 @@ abstract class Categoriesfirebasservice {
 }
 
 class Categoriesfirebaseimpl extends Categoriesfirebasservice {
-  final FirebaseFirestore _firestore;
-
-  Categoriesfirebaseimpl({required FirebaseFirestore firestore})
-      : _firestore = firestore;
   @override
   Future<Either> getCategories() async {
     try {

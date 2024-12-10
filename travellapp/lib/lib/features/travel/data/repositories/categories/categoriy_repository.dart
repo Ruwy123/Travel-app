@@ -12,7 +12,7 @@ class CategoriyRepositoryImpl extends Catrep {
       return Left(error);
     }, (data) {
       return Right(List.from(data)
-          .map((e) => CategoryModel.fromMap(e).toJson())
+          .map((e) => CategoryModel.fromFirestore(e).toJson())
           .toList());
     });
   }

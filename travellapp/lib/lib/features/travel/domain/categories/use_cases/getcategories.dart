@@ -4,11 +4,9 @@ import 'package:travellapp/lib/features/travel/domain/categories/repositories/ca
 import 'package:travellapp/service_locator.dart';
 import 'package:travellapp/usecases/use_case.dart';
 
-class GetcategoriesuseCase {
-  final Catrep _catrep;
-
-  GetcategoriesuseCase({required Catrep catrep}) : _catrep = catrep;
-  Future<Either<Exception, List<Category>>> call() async {
-    return await _catrep.getCategories();
+class GetcategoriesuseCase implements UseCase<Either, dynamic> {
+  @override
+  Future<Either> call({params}) async {
+    return await sl<Catrep>().getCategories();
   }
 }

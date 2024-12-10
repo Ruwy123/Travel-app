@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -17,39 +16,33 @@ class CategoryModel extends CategoryEntities {
   List<Object?> get props => [name, docid, isfeatured, id];
   //converting it to json
 
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'Name': name,
-      'docid': docid,
-      'Isfeatured': isfeatured,
-      'Id': '',
-    };
-  }
-
-  static CategoryModel empty() =>
-      CategoryModel(name: '', docid: '', isfeatured: false, id: '');
-
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': name,
       'docid': docid,
-      'isfeatured': isfeatured,
-      'id': id,
+      'Isfeatured': isfeatured,
+      'Id': id,
     };
   }
 
-  factory CategoryModel.fromMap(
-      DocumentSnapshot<Map<String, dynamic>> document) {
-    if (document.data() != null) {
-      final data = document.data()!;
+  factory CategoryModel.fromFirestore(Map<String, dynamic> map) {
+    return CategoryModel(
+      name: map['name'] as String,
+      docid: map['docid'] as String,
+      isfeatured: map['Isfeatured'] as bool,
+      id: map['Id'] as String,
+    );
+  }
 
-      return CategoryModel(
-          name: data['Name'] ?? '',
-          docid: data['Id'] ?? '',
-          isfeatured: data['Isfeatured'] ?? false,
-          id: document.id);
-    } else {
-      return CategoryModel.empty();
-    }
+  String toJson() => json.encode(toMap());
+
+  factory CategoryModel.fromJson(String source) =>
+      CategoryEntities.fromMap(json.decode(source) as Map<String, dynamic>);
+}
+
+extension CategoryXModel on CategoryModel {
+  CategoryEntities toEntity() {
+    return CategoryEntities(
+        name: name, docid: docid, isfeatured: isfeatured, id: id);
   }
 }

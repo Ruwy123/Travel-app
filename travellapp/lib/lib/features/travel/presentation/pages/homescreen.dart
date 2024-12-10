@@ -50,7 +50,7 @@ class _homeState extends State<home> {
               ),
             ),
             const Imageslider(),
-            categories(),
+            Categories(),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, top: 25),
               child: Row(

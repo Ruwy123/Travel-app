@@ -13,13 +13,19 @@ class CategoryCubit extends Cubit<CategoryState> {
   ) : super(CategoryLoading());
 
   Future<void> displayCategories() async {
-    emit(CategoryLoading());
-    try {
-      final dataReturned = await _getcategoriesuseCase();
-      dataReturned.fold((failure) => emit(Categoryfailed()),
-          (categories) => emit(Categoryloaded(categories: categories)));
-    } catch (e) {
+    var returnedData = await _getcategoriesuseCase();
+    returnedData.fold((error) {
       emit(Categoryfailed());
-    }
+    }, (data) {
+      emit(Categoryloaded(categories: data));
+    });
   }
+//  emit(CategoryLoading());
+//     try {
+//       final dataReturned = await _getcategoriesuseCase();
+//       dataReturned.fold((failure) => emit(Categoryfailed()),
+//           (categories) => emit(Categoryloaded(categories: categories)));
+//     } catch (e) {
+//       emit(Categoryfailed());
+//     }
 }
